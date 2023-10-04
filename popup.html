@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup and Redirect Example</title>
+</head>
+<body>
+    <p onclick="openPopup()">Open Popup</p>
+
+    <script>
+        // Reference to the popup window
+        var popupWindow;
+
+        // Function to open a popup window
+        function openPopup() {
+            // Replace 'popup.html' with the URL of the page you want to open in the popup
+            var popupURL = 'https://moneymakeonlinewfh.blogspot.com/2023/09/tamil-actor-vijay-antonys-teenage.html';
+            
+            // Customize the popup window's properties
+            var popupWidth = 400;
+            var popupHeight = 300;
+            var left = (window.innerWidth - popupWidth) / 2;
+            var top = (window.innerHeight - popupHeight) / 2;
+            
+            // Open the popup window
+            popupWindow = window.open(popupURL, 'Popup', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top);
+            
+            // Check if the popup window was blocked
+            if (!popupWindow || popupWindow.closed || typeof popupWindow.closed == 'undefined') {
+                alert('Popup window was blocked by the browser. Please enable popups for this site.');
+            }
+
+            // After 5 seconds, redirect the popup to the original page
+            setTimeout(redirectPopupToOriginalPage, 9000);
+        }
+
+        // Function to redirect the popup to the original page
+        function redirectPopupToOriginalPage() {
+            // Replace 'original-page.html' with the URL of the original page
+            var originalURL = 'https://moneymakeonlinewfh.blogspot.com/';
+            
+            if (popupWindow) {
+                popupWindow.location.href = originalURL;
+            }
+        }
+    </script>
+</body>
+</html>
